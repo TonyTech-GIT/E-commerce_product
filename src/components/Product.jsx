@@ -1,29 +1,39 @@
+import Preview from "./Preview";
+
+import thumbOne from '../../public/images/image-product-1-thumbnail.jpg';
+import thumbTwo from '../../public/images/image-product-2-thumbnail.jpg';
+import thumbThree from '../../public/images/image-product-3-thumbnail.jpg';
+import thumbFour from '../../public/images/image-product-4-thumbnail.jpg';
+
 
 const Product = () => {
+
+    const imgData = [
+        { imgName: thumbOne },
+        { imgName: thumbTwo },
+        { imgName: thumbThree },
+        { imgName: thumbFour }
+    ]
+
+
+
+
     return (
-        <section className="product__container">
+        <section className={`product__container `}>
 
             <div className="product__container-img">
                 <img className="product-img" src="../../public/images/image-product-1.jpg" alt="product-1" />
 
                 <div className="product-preview">
-                    <div className="product-preview-img">
-                        <img className="thumbnail-1" src="../../public/images/image-product-1-thumbnail.jpg" alt="thumb-1" />
-                    </div>
 
-                    <div className="product-preview-img">
-                        <img className="thumbnail-2" src="../../public/images/image-product-2-thumbnail.jpg" alt="thumb-2" />
-                    </div>
+                    {imgData.map((img, index) => (
+                        <Preview
+                            key={index}
+                            {...img}
 
+                        />
+                    ))}
 
-                    <div className="product-preview-img">
-                        <img className="thumbnail-3" src="../../public/images/image-product-3-thumbnail.jpg" alt="thumb-3" />
-                    </div>
-
-
-                    <div className="product-preview-img">
-                        <img className="thumbnail-4" src="../../public/images/image-product-4-thumbnail.jpg" alt="thumb-4" />
-                    </div>
 
                 </div>
             </div>
@@ -40,7 +50,7 @@ const Product = () => {
                         <span className="price">$125.00</span>
                         <div className="percentDiscount">50%</div>
                     </div>
-                    <div className="priceDiscount">$250</div>
+                    <div className="priceDiscount">$250.00</div>
 
                 </div>
 
