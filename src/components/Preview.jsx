@@ -2,21 +2,33 @@ import PropTypes from 'prop-types'
 import { useState } from "react"
 
 
-const Preview = ({ imgName, setModalFunction }) => {
+const Preview = ({ imgName, setModalFunction, handleImageHover }) => {
 
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(true)
 
     const handleModal = () => {
         setShowModal(!showModal)
+
+        console.log('in preview', showModal);
+
+        setModalFunction(showModal)
+
     }
 
-    setModalFunction(showModal)
     return (
-        <div className={`product-preview-img ${showModal && 'overlay'}`}>
+        <div className="product-preview-img">
             <img
                 src={imgName}
                 alt={imgName}
                 onClick={handleModal}
+                onMouseEnter={(e) => {
+                    handleImageHover(imgName)
+                    e.target.style.filter = 'none';
+                }}
+                onMouseLeave={(e) => {
+                    handleImageHover(imgName)
+                    e.target.style.filter = '';
+                }}
             />
         </div>
 
@@ -25,7 +37,8 @@ const Preview = ({ imgName, setModalFunction }) => {
 
 Preview.propTypes = {
     imgName: PropTypes.string.isRequired,
-    setModalFunction: PropTypes.func.isRequired
+    setModalFunction: PropTypes.func.isRequired,
+    handleImageHover: PropTypes.string.isRequired
 }
 
 export default Preview
