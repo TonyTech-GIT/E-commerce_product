@@ -21,13 +21,13 @@ const Preview = ({ imgName, setModalFunction, handleImageHover }) => {
                 src={imgName}
                 alt={imgName}
                 onClick={handleModal}
-                onMouseEnter={(e) => {
+                onMouseEnter={() => {
                     handleImageHover(imgName)
-                    e.target.style.filter = 'none';
+
                 }}
-                onMouseLeave={(e) => {
+                onMouseLeave={() => {
                     handleImageHover(imgName)
-                    e.target.style.filter = '';
+
                 }}
             />
         </div>

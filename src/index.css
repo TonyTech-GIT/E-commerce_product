@@ -2,6 +2,7 @@
 
 @import url("./styles/header.css");
 @import url("./styles/main.css");
+@import url("./styles/firstModal.css");
 
 :root {
   /* Primary Colors... */
@@ -41,4 +42,10 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 999;
+}
+
+@media only screen and (max-width: 767px) {
+  .overlay {
+    display: none;
+  }
 }
