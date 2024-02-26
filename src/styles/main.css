@@ -16,6 +16,11 @@
   object-fit: contain;
 }
 
+.next-icon,
+.previous-icon {
+  display: none;
+}
+
 .product-preview {
   display: flex;
 
@@ -200,6 +205,34 @@
     width: 100%;
 
     border-radius: 0;
+  }
+
+  .next-icon,
+  .previous-icon {
+    display: block;
+
+    position: absolute;
+
+    background-color: var(--white);
+
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+
+  .next-icon {
+    left: 28.3rem;
+
+    top: 16rem;
+
+    background-color: var(--white);
+
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+
+  .previous-icon {
+    top: 16rem;
+    left: 1rem;
   }
 
   .product-preview {

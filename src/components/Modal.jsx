@@ -3,17 +3,22 @@ import PropTypes from 'prop-types'
 
 import ModalPreview from "./ModalPreview"
 
-import prevOne from '../../public/images/image-product-1-thumbnail.jpg';
-import prevTwo from '../../public/images/image-product-2-thumbnail.jpg';
-import prevThree from '../../public/images/image-product-3-thumbnail.jpg';
-import prevFour from '../../public/images/image-product-4-thumbnail.jpg';
+import productOne from '../../public/images/image-product-1.jpg';
+import productTwo from '../../public/images/image-product-2.jpg';
+import productThree from '../../public/images/image-product-3.jpg';
+import productFour from '../../public/images/image-product-4.jpg';
+
+import previewOne from '../../public/images/image-product-1-thumbnail.jpg';
+import previewTwo from '../../public/images/image-product-2-thumbnail.jpg';
+import previewThree from '../../public/images/image-product-3-thumbnail.jpg';
+import previewFour from '../../public/images/image-product-4-thumbnail.jpg';
 import { useState } from "react";
 
 const modalPrevImg = [
-    { modalImg: prevOne },
-    { modalImg: prevTwo },
-    { modalImg: prevThree },
-    { modalImg: prevFour }
+    { modalImg: previewOne },
+    { modalImg: previewTwo },
+    { modalImg: previewThree },
+    { modalImg: previewFour }
 ]
 
 const Modal = ({ onClose }) => {
@@ -23,13 +28,30 @@ const Modal = ({ onClose }) => {
 
     const handleCloseModal = () => {
 
-
         return onClose();
 
     }
 
     const handlePreviewImg = (previewImg) => {
-        setSelectedPrevModal(previewImg)
+        setSelectedPrevModal(previewImg);
+
+        switch (previewImg) {
+            case previewOne:
+                setSelectedPrevModal(productOne)
+                break;
+            case previewTwo:
+                setSelectedPrevModal(productTwo)
+                break;
+            case previewThree:
+                setSelectedPrevModal(productThree)
+                break;
+            case previewFour:
+                setSelectedPrevModal(productFour)
+                break;
+
+            default:
+                break;
+        }
     }
 
     return (
