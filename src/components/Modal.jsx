@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+
+
 import ModalPreview from "./ModalPreview"
 
 import prevOne from '../../public/images/image-product-1-thumbnail.jpg';
@@ -13,15 +16,30 @@ const modalPrevImg = [
     { modalImg: prevFour }
 ]
 
-const Modal = () => {
+const Modal = ({ onClose }) => {
 
     const [selectedPrevModal, setSelectedPrevModal] = useState(null)
 
-    const handlePrevImg = (prevImg) => {
-        setSelectedPrevModal(prevImg)
+
+    const handleCloseModal = () => {
+
+
+        return onClose();
+
     }
+
+    const handlePreviewImg = (previewImg) => {
+        setSelectedPrevModal(previewImg)
+    }
+
     return (
         <main className="firstModal">
+            <img
+                className="firstModalClose"
+                src="../../public/images/icon-close.svg" alt="close"
+
+                onClick={handleCloseModal}
+            />
             <img className="product-img" src={selectedPrevModal || "../../public/images/image-product-1.jpg"} alt="product-1" />
 
             <div className="modal-preview">
@@ -30,7 +48,7 @@ const Modal = () => {
                         key={index}
                         {...modalPrevOne}
 
-                        handlePrevImg={handlePrevImg}
+                        handlePreviewImg={handlePreviewImg}
                     />
                 ))}
 
@@ -39,6 +57,10 @@ const Modal = () => {
 
         </main>
     )
+}
+
+Modal.propTypes = {
+    onClose: PropTypes.func.isRequired
 }
 
 export default Modal

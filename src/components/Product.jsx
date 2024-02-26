@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 
 import Preview from "./Preview";
 
@@ -9,11 +7,11 @@ import thumbThree from '../../public/images/image-product-3-thumbnail.jpg';
 import thumbFour from '../../public/images/image-product-4-thumbnail.jpg';
 
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
-const Product = ({ passedUpModal }) => {
-    const [handleModalFunction, setHandleModalFunction] = useState(null)
+const Product = () => {
+
 
     const [hoveredImage, setHoveredImage] = useState("../../public/images/image-product-1.jpg")
 
@@ -27,13 +25,6 @@ const Product = ({ passedUpModal }) => {
         { imgName: thumbThree },
         { imgName: thumbFour }
     ]
-
-
-
-    useEffect(() => {
-        setHandleModalFunction(handleModalFunction)
-        passedUpModal(handleModalFunction)
-    }, [handleModalFunction, passedUpModal])
 
 
 
@@ -52,7 +43,6 @@ const Product = ({ passedUpModal }) => {
                             key={index}
                             {...img}
 
-                            setModalFunction={setHandleModalFunction}
                             handleImageHover={handleImageHover}
                         />
                     ))}
@@ -97,8 +87,6 @@ const Product = ({ passedUpModal }) => {
     )
 }
 
-Product.propTypes = {
-    passedUpModal: PropTypes.func.isRequired
-}
+
 
 export default Product

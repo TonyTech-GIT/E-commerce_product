@@ -8,6 +8,18 @@
 
   z-index: 1000;
   left: 35rem;
+  top: 9rem;
+}
+
+.firstModal .firstModalClose {
+  position: relative;
+
+  left: 17.5rem;
+  bottom: 1rem;
+
+  filter: brightness(0) invert(1);
+
+  cursor: pointer;
 }
 
 .firstModal .product-img {
@@ -45,4 +57,7 @@
   border-radius: 5px;
 
   cursor: pointer;
+}
+.firstModal .modal-preview .modal-preview-img img:hover {
+  opacity: 0.5;
 }
