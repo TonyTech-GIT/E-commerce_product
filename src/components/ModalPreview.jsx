@@ -7,7 +7,7 @@ const ModalPreview = ({ modalImg, handlePreviewImg }) => {
             <img
                 src={modalImg}
                 alt={modalImg}
-
+                onClick={() => handlePreviewImg(modalImg)}
                 onMouseEnter={() => handlePreviewImg(modalImg)}
             />
         </div>

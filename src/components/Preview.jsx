@@ -3,15 +3,23 @@ import { useState } from "react"
 import Modal from './Modal'
 
 
-const Preview = ({ imgName, handleImageHover }) => {
+
+
+
+const Preview = ({ imgName, handleImageHover, imgClick }) => {
 
     const [showModal, setShowModal] = useState(false)
+    const [selectedImage, setSelectedImage] = useState(null)
 
     const handleModal = () => {
         setShowModal(!showModal)
 
-
+        setSelectedImage(selectedImage)
         console.log('in preview', showModal);
+
+        console.log(imgName);
+
+        console.log('jbsujbsdu', imgClick());
     }
 
     return (
@@ -32,7 +40,7 @@ const Preview = ({ imgName, handleImageHover }) => {
                 />
             </div>
             {showModal && <div className='overlay' />}
-            {showModal && <Modal onClose={handleModal} />}
+            {showModal && <Modal selectedImage={imgName} onClose={handleModal} />}
         </>
 
 
@@ -41,7 +49,8 @@ const Preview = ({ imgName, handleImageHover }) => {
 
 Preview.propTypes = {
     imgName: PropTypes.string.isRequired,
-    handleImageHover: PropTypes.func.isRequired
+    handleImageHover: PropTypes.func.isRequired,
+    imgClick: PropTypes.func
 }
 
 export default Preview

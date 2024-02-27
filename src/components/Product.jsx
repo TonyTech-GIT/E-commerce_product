@@ -44,12 +44,29 @@ const Product = () => {
         }
     }
 
+    const handleImgClick = (imgName) => {
+        // const resImg = `${imgData.find(item => item.imgName === imgName).product}`;
+        console.log(`Product name: ${imgData.find(item => item.imgName === imgName).product} `);
+    }
+
     const imgData = [
-        { imgName: thumbOne },
-        { imgName: thumbTwo },
-        { imgName: thumbThree },
-        { imgName: thumbFour }
+        { imgName: thumbOne, product: productOne },
+        { imgName: thumbTwo, product: productTwo },
+        { imgName: thumbThree, product: productThree },
+        { imgName: thumbFour, product: productFour }
     ]
+
+    const handleNextImage = () => {
+        const currentIndex = imgData.findIndex(img => img.product === hoveredImage);
+        const nextIndex = (currentIndex + 1) % imgData.length;
+        setHoveredImage(imgData[nextIndex].product);
+    }
+
+    const handlePreviousImage = () => {
+        const currentIndex = imgData.findIndex(img => img.product === hoveredImage);
+        const previousIndex = (currentIndex - 1 + imgData.length) % imgData.length;
+        setHoveredImage(imgData[previousIndex].product);
+    }
 
     const handleIncrement = () => {
         setQuantity((prevQuantity) => prevQuantity + 1)
@@ -65,21 +82,53 @@ const Product = () => {
         <section className="product__container">
 
             <div className="product__container-img">
-                <img className="next-icon" src="../../public/images/icon-next.svg" alt="next" />
+                <img
+                    className="next-icon"
+                    src="../../public/images/icon-next.svg" alt="next"
+                    onClick={handleNextImage}
+                />
+
                 <img className="product-img" src={hoveredImage} alt={hoveredImage} />
 
-                <img className="previous-icon" src="../../public/images/icon-previous.svg" alt="previous" />
+                <img
+                    className="previous-icon"
+                    src="../../public/images/icon-previous.svg" alt="previous"
+                    onClick={handlePreviousImage}
+                />
 
                 <div className="product-preview">
 
-                    {imgData.map((img, index) => (
+                    <Preview
+                        handleImageHover={handleImageHover} imgName={productOne}
+                        imgClick={() => handleImgClick(productOne)}
+                    />
+
+                    <Preview
+                        handleImageHover={handleImageHover}
+                        imgName={productTwo}
+                        imgClick={() => handleImgClick(productTwo)}
+                    />
+
+                    <Preview
+                        handleImageHover={handleImageHover}
+                        imgName={productThree}
+                        imgClick={() => handleImgClick(productThree)}
+                    />
+
+                    <Preview
+                        handleImageHover={handleImageHover} imgName={productFour}
+                        imgClick={() => handleImgClick(productFour)}
+                    />
+
+                    {/* {imgData.map((img, index) => (
                         <Preview
                             key={index}
                             {...img}
 
                             handleImageHover={handleImageHover}
+                            imgClick={() => handleImgClick(img.imgName)}
                         />
-                    ))}
+                    ))} */}
 
 
                 </div>

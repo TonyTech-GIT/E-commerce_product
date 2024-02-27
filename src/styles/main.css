@@ -217,12 +217,14 @@
 
     border-radius: 50%;
     padding: 0.5rem;
+
+    cursor: pointer;
   }
 
   .next-icon {
     left: 28.3rem;
 
-    top: 16rem;
+    top: 16.5rem;
 
     background-color: var(--white);
 
@@ -231,7 +233,7 @@
   }
 
   .previous-icon {
-    top: 16rem;
+    top: 16.5rem;
     left: 1rem;
   }
 
