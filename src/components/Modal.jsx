@@ -24,7 +24,7 @@ const modalPrevImg = [
 
 const Modal = ({ onClose, selectedImage }) => {
 
-    const [selectedPrevModal, setSelectedPrevModal] = useState([])
+    const [selectedPrevModal, setSelectedPrevModal] = useState(null)
 
 
     const handleCloseModal = () => {
@@ -34,13 +34,12 @@ const Modal = ({ onClose, selectedImage }) => {
     }
 
     useEffect(() => {
-        console.log('jbhbbj', selectedImage);
+        console.log('jbhbbj', selectedPrevModal);
 
     })
 
 
     const handlePreviewImg = (previewImg) => {
-        setSelectedPrevModal((prevSelectedPrevModal) => [...prevSelectedPrevModal, previewImg]);
 
         switch (previewImg) {
             case previewOne:
@@ -71,7 +70,7 @@ const Modal = ({ onClose, selectedImage }) => {
 
                 onClick={handleCloseModal}
             />
-            <img className="product-img" src={selectedImage ? selectedImage : selectedPrevModal[selectedPrevModal.length - 1]} alt="product-1" />
+            <img className="product-img" src={selectedPrevModal ? selectedPrevModal : selectedImage} alt="product-1" />
 
             <div className="modal-preview">
                 {modalPrevImg.map((modalPrevOne, index) => (
