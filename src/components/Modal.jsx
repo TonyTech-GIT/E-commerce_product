@@ -13,7 +13,7 @@ import previewTwo from '../../public/images/image-product-2-thumbnail.jpg';
 import previewThree from '../../public/images/image-product-3-thumbnail.jpg';
 import previewFour from '../../public/images/image-product-4-thumbnail.jpg';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const modalPrevImg = [
     { modalImg: previewOne },
@@ -24,7 +24,7 @@ const modalPrevImg = [
 
 const Modal = ({ onClose, selectedImage }) => {
 
-    const [selectedPrevModal, setSelectedPrevModal] = useState(productOne)
+    const [selectedPrevModal, setSelectedPrevModal] = useState([])
 
 
     const handleCloseModal = () => {
@@ -33,8 +33,14 @@ const Modal = ({ onClose, selectedImage }) => {
 
     }
 
+    useEffect(() => {
+        console.log('jbhbbj', selectedImage);
+
+    })
+
+
     const handlePreviewImg = (previewImg) => {
-        // setSelectedPrevModal(previewImg);
+        setSelectedPrevModal((prevSelectedPrevModal) => [...prevSelectedPrevModal, previewImg]);
 
         switch (previewImg) {
             case previewOne:
@@ -65,7 +71,7 @@ const Modal = ({ onClose, selectedImage }) => {
 
                 onClick={handleCloseModal}
             />
-            <img className="product-img" src={selectedImage} alt="product-1" />
+            <img className="product-img" src={selectedImage ? selectedImage : selectedPrevModal[selectedPrevModal.length - 1]} alt="product-1" />
 
             <div className="modal-preview">
                 {modalPrevImg.map((modalPrevOne, index) => (

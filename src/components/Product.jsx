@@ -1,5 +1,7 @@
 
 import Preview from "./Preview";
+import Modal from './Modal'
+
 
 import productOne from '../../public/images/image-product-1.jpg';
 import productTwo from '../../public/images/image-product-2.jpg';
@@ -18,9 +20,17 @@ import { useState } from "react";
 const Product = () => {
 
     const [hoveredImage, setHoveredImage] = useState(productOne)
+    const [selectedImage, setSelectedImage] = useState(null)
     const [quantity, setQuantity] = useState(0)
+    const [showModal, setShowModal] = useState(false)
 
 
+    const handleModal = () => {
+        setShowModal(!showModal)
+
+        setSelectedImage(hoveredImage)
+
+    }
 
     const handleImageHover = (imgName) => {
         setHoveredImage(imgName)
@@ -44,10 +54,12 @@ const Product = () => {
         }
     }
 
-    const handleImgClick = (imgName) => {
-        // const resImg = `${imgData.find(item => item.imgName === imgName).product}`;
-        console.log(`Product name: ${imgData.find(item => item.imgName === imgName).product} `);
-    }
+    // console.log(`Product name: ${imgData.find(item => item.imgName === imgName).product} `);
+    // const handleImgClick = (imgName) => {
+
+    //     setSelectedImage(imgName)
+
+    // }
 
     const imgData = [
         { imgName: thumbOne, product: productOne },
@@ -88,7 +100,11 @@ const Product = () => {
                     onClick={handleNextImage}
                 />
 
-                <img className="product-img" src={hoveredImage} alt={hoveredImage} />
+                <img
+                    className="product-img"
+                    src={hoveredImage}
+                    alt={hoveredImage}
+                />
 
                 <img
                     className="previous-icon"
@@ -99,25 +115,27 @@ const Product = () => {
                 <div className="product-preview">
 
                     <Preview
-                        handleImageHover={handleImageHover} imgName={productOne}
-                        imgClick={() => handleImgClick(productOne)}
+                        handleImageHover={handleImageHover}
+                        imgName={productOne}
+                        imgClick={handleModal}
                     />
 
                     <Preview
                         handleImageHover={handleImageHover}
                         imgName={productTwo}
-                        imgClick={() => handleImgClick(productTwo)}
+                        imgClick={handleModal}
                     />
 
                     <Preview
                         handleImageHover={handleImageHover}
                         imgName={productThree}
-                        imgClick={() => handleImgClick(productThree)}
+                        imgClick={handleModal}
                     />
 
                     <Preview
-                        handleImageHover={handleImageHover} imgName={productFour}
-                        imgClick={() => handleImgClick(productFour)}
+                        handleImageHover={handleImageHover}
+                        imgName={productFour}
+                        imgClick={handleModal}
                     />
 
                     {/* {imgData.map((img, index) => (
@@ -177,6 +195,9 @@ const Product = () => {
             </div>
 
 
+
+            {showModal && <div className='overlay' />}
+            {showModal && <Modal selectedImage={selectedImage} onClose={handleModal} />}
 
         </section>
     )
