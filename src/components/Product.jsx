@@ -62,13 +62,6 @@ const Product = () => {
         }
     }
 
-    // console.log(`Product name: ${imgData.find(item => item.imgName === imgName).product} `);
-    // const handleImgClick = (imgName) => {
-
-    //     setSelectedImage(imgName)
-
-    // }
-
     const imgData = [
         { imgName: thumbOne, product: productOne },
         { imgName: thumbTwo, product: productTwo },
