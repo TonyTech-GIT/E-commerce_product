@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
 
-const ModalPreview = ({ modalImg, handlePreviewImg }) => {
+const ModalPreview = ({ modalImg, handlePreviewImg, testModalClose }) => {
     return (
         <div className='modal-preview-img'>
             <img
                 src={modalImg}
                 alt={modalImg}
-                onClick={() => handlePreviewImg(modalImg)}
+                onClick={() => testModalClose()}
                 onMouseEnter={() => handlePreviewImg(modalImg)}
             />
         </div>
@@ -17,6 +17,7 @@ const ModalPreview = ({ modalImg, handlePreviewImg }) => {
 
 ModalPreview.propTypes = {
     modalImg: PropTypes.string.isRequired,
-    handlePreviewImg: PropTypes.func.isRequired
+    handlePreviewImg: PropTypes.func.isRequired,
+    testModalClose: PropTypes.func
 }
 export default ModalPreview

@@ -22,7 +22,7 @@ const modalPrevImg = [
     { modalImg: previewFour }
 ]
 
-const Modal = ({ onClose, selectedImage }) => {
+const Modal = ({ onClose, selectedImage, setModalImage }) => {
 
     const [selectedPrevModal, setSelectedPrevModal] = useState(null)
 
@@ -31,6 +31,15 @@ const Modal = ({ onClose, selectedImage }) => {
 
         return onClose();
 
+    }
+
+    const modalImgToProduct = () => {
+
+        onClose()
+
+        console.log('modal image', selectedPrevModal);
+
+        setModalImage(selectedPrevModal)
     }
 
     useEffect(() => {
@@ -58,6 +67,7 @@ const Modal = ({ onClose, selectedImage }) => {
             default:
                 break;
         }
+
     }
 
 
@@ -79,6 +89,8 @@ const Modal = ({ onClose, selectedImage }) => {
                         {...modalPrevOne}
 
                         handlePreviewImg={handlePreviewImg}
+                        testModalClose={modalImgToProduct}
+
                     />
                 ))}
 
@@ -91,7 +103,8 @@ const Modal = ({ onClose, selectedImage }) => {
 
 Modal.propTypes = {
     onClose: PropTypes.func.isRequired,
-    selectedImage: PropTypes.string
+    selectedImage: PropTypes.string,
+    setModalImage: PropTypes.func
 
 }
 

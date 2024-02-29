@@ -14,7 +14,7 @@ import thumbThree from '../../public/images/image-product-3-thumbnail.jpg';
 import thumbFour from '../../public/images/image-product-4-thumbnail.jpg';
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const Product = () => {
@@ -23,6 +23,14 @@ const Product = () => {
     const [selectedImage, setSelectedImage] = useState(null)
     const [quantity, setQuantity] = useState(0)
     const [showModal, setShowModal] = useState(false)
+    const [selectedModalImage, setSelectedModalImage] = useState(null)
+
+    useEffect(() => {
+        console.log('yyyyy', selectedModalImage);
+
+        console.log('fdddfdf', hoveredImage);
+
+    })
 
 
     const handleModal = () => {
@@ -102,7 +110,7 @@ const Product = () => {
 
                 <img
                     className="product-img"
-                    src={hoveredImage}
+                    src={hoveredImage ? hoveredImage : selectedModalImage}
                     alt={hoveredImage}
                 />
 
@@ -197,7 +205,7 @@ const Product = () => {
 
 
             {showModal && <div className='overlay' />}
-            {showModal && <Modal selectedImage={selectedImage} onClose={handleModal} />}
+            {showModal && <Modal selectedImage={selectedImage} onClose={handleModal} setModalImage={setSelectedModalImage} />}
 
         </section>
     )
