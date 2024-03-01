@@ -1,3 +1,6 @@
+// import PropTypes from 'prop-types'
+
+/* eslint-disable no-unused-vars */
 
 import Preview from "./Preview";
 import Modal from './Modal'
@@ -14,14 +17,15 @@ import thumbThree from '../../public/images/image-product-3-thumbnail.jpg';
 import thumbFour from '../../public/images/image-product-4-thumbnail.jpg';
 
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { QuantityContext } from './QuantityContext';
 
 
 const Product = () => {
 
     const [hoveredImage, setHoveredImage] = useState(productOne)
     const [selectedImage, setSelectedImage] = useState(null)
-    const [quantity, setQuantity] = useState(0)
+    const { quantity, setQuantity } = useContext(QuantityContext)
     const [showModal, setShowModal] = useState(false)
     const [selectedModalImage, setSelectedModalImage] = useState(null)
 
@@ -30,8 +34,7 @@ const Product = () => {
 
         console.log('fdddfdf', hoveredImage);
 
-    })
-
+    },)
 
     const handleModal = () => {
         setShowModal(!showModal)
@@ -203,6 +206,10 @@ const Product = () => {
         </section>
     )
 }
+
+// Product.propTypes = {
+//     setQuantityNumber: PropTypes.func
+// }
 
 
 

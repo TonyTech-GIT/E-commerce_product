@@ -1,9 +1,14 @@
-import { useState } from "react"
+import { useContext, useState, useEffect } from "react"
 
 // import productOne from '../../public/images/image-product-1.jpg'
 
+import { QuantityContext } from "./QuantityContext"
+
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [cartDetails, setCartDetails] = useState(false)
+
+    const { quantity } = useContext(QuantityContext)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -12,6 +17,14 @@ const Header = () => {
     const closeMenu = () => {
         setIsMenuOpen(false)
     }
+
+    const handleCartDetails = () => {
+        setCartDetails(!cartDetails)
+    }
+
+    useEffect(() => {
+        console.log('in header compo', quantity);
+    })
     return (
         <div >
             {isMenuOpen && <div className="overlay-header" />}
@@ -36,27 +49,42 @@ const Header = () => {
                     </div>
                 )}
 
-                <div className="cart-details">
-                    <h4>Cart</h4>
+                {/* CART DETAILS COMPONENT STARTS... */}
+                {cartDetails && (
+                    <div className="cart-details">
+                        <h4>Cart</h4>
 
-                    <hr />
+                        <hr />
 
-                    <div className="cart-details-info">
+                        {quantity === 0 ? (
+                            <p className="no-item">Your cart is empty.</p>
+                        ) : (
+                            <>
+                                <div className="cart-details-info">
 
-                        <div className="info-img">
-                            <img src="../../public/images/image-product-1-thumbnail.jpg" alt="info-img" />
-                        </div>
+                                    <div className="info-img">
+                                        <img src="../../public/images/image-product-1-thumbnail.jpg" alt="info-img" />
+                                    </div>
 
-                        <div className="info-price">
-                            <p className="title">Fall Limited Edition Sneakers</p>
-                            <p className="price">$125.00 x <span className="qty-num">3</span> <span className="total">{`$${375.00}`}</span></p>
-                        </div>
+                                    <div className="info-price">
+                                        <p className="title">Fall Limited Edition Sneakers</p>
+                                        <p className="price">$125.00 x <span className="qty-num">{quantity}</span> <span className="total">{`$${quantity * 125.00}`}</span></p>
+                                    </div>
 
-                        <img className="delete-icon" src="../../public/images/icon-delete.svg" />
+                                    <img className="delete-icon" src="../../public/images/icon-delete.svg" />
+                                </div>
+
+                                <button className="cart-cta">Checkout</button>
+                            </>
+
+                        )}
+
+
+
                     </div>
+                )}
 
-                    <button className="cart-cta">Checkout</button>
-                </div>
+                {/* CART DETAILS COMPONENT ENDS... */}
 
                 <div className="header__container-wrapper">
                     <div className="header__container-leftSide">
@@ -81,8 +109,15 @@ const Header = () => {
                     </div>
 
                     <div className="header__container-rightSide">
-                        <div className="item-no"><span>3</span></div>
-                        <img className="cart-icon" src="../../public/images/icon-cart.svg" alt="cart" />
+                        {quantity >= 1 && <div className="item-no"><span>{quantity ? quantity : ''}</span></div>}
+
+
+                        <img
+                            className="cart-icon"
+                            src="../../public/images/icon-cart.svg"
+                            alt="cart"
+                            onClick={handleCartDetails}
+                        />
 
                         <img className="avatar" src="../../public/images/image-avatar.png" alt="avatar" />
 

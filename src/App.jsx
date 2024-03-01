@@ -1,17 +1,20 @@
+
 import Header from "./components/Header"
 import Product from "./components/Product"
+
+import { QuantityProvider } from "./components/QuantityContext"
 
 
 const App = () => {
 
-
   return (
-    <section >
-      <Header />
+    <QuantityProvider>
+      <section >
+        <Header />
 
-      <Product />
-    </section>
-
+        <Product />
+      </section>
+    </QuantityProvider>
 
   )
 }
