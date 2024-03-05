@@ -29,6 +29,10 @@ const Product = () => {
     const [showModal, setShowModal] = useState(false)
     const [selectedModalImage, setSelectedModalImage] = useState(null)
 
+    const [activeImageId, setActiveImageId] = useState(null)
+
+
+
     useEffect(() => {
         console.log('yyyyy', selectedModalImage);
 
@@ -40,7 +44,6 @@ const Product = () => {
         setShowModal(!showModal)
 
         setSelectedImage(hoveredImage)
-
     }
 
     const handleImageHover = (imgName) => {
@@ -91,6 +94,10 @@ const Product = () => {
         setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 0))
     }
 
+    const handlePreviewClick = (id) => {
+        setActiveImageId(id)
+    }
+
 
 
     return (
@@ -119,27 +126,39 @@ const Product = () => {
                 <div className="product-preview">
 
                     <Preview
+                        id={1}
                         handleImageHover={handleImageHover}
                         imgName={productOne}
                         imgClick={handleModal}
+                        isActive={activeImageId === 1}
+                        onClick={() => handlePreviewClick(1)}
                     />
 
                     <Preview
+                        id={2}
                         handleImageHover={handleImageHover}
                         imgName={productTwo}
                         imgClick={handleModal}
+                        isActive={activeImageId === 2}
+                        onClick={() => handlePreviewClick(2)}
                     />
 
                     <Preview
+                        id={3}
                         handleImageHover={handleImageHover}
                         imgName={productThree}
                         imgClick={handleModal}
+                        isActive={activeImageId === 3}
+                        onClick={() => handlePreviewClick(3)}
                     />
 
                     <Preview
+                        id={4}
                         handleImageHover={handleImageHover}
                         imgName={productFour}
                         imgClick={handleModal}
+                        isActive={activeImageId === 4}
+                        onClick={() => handlePreviewClick(4)}
                     />
 
                     {/* {imgData.map((img, index) => (

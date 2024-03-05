@@ -35,9 +35,13 @@
 
   width: 60px;
 }
-.product-preview .product-preview-img:hover {
+.product-preview .product-preview-img.active {
   border: 2px solid var(--orange);
 }
+
+/* .product-preview .product-preview-img:hover {
+  border: 2px solid var(--orange);
+} */
 .product-preview .product-preview-img img {
   max-width: 100%;
   border-radius: 5px;
@@ -48,6 +52,9 @@
 }
 .product-preview .product-preview-img img:hover {
   opacity: 0.5;
+}
+.product-preview .product-preview-img img.active {
+  opacity: 0.7;
 }
 
 /* Product description... */
