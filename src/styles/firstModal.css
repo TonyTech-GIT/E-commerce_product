@@ -21,6 +21,9 @@
 
   cursor: pointer;
 }
+.firstModal .firstModalClose:hover {
+  filter: brightness(1.3) invert(0) sepia(1) hue-rotate(26deg);
+}
 
 .firstModal .product-img {
   width: 300px;

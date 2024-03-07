@@ -32,7 +32,7 @@ const Header = () => {
             <section className={`header__container `}>
 
                 {isMenuOpen && (
-                    <div className="menu-nav">
+                    <div className="menu-nav ">
                         <div className="close-btn">
                             <img
                                 src="../../public/images/icon-close.svg"
