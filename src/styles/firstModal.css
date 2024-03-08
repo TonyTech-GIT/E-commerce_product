@@ -22,7 +22,8 @@
   cursor: pointer;
 }
 .firstModal .firstModalClose:hover {
-  filter: brightness(1.3) invert(0) sepia(1) hue-rotate(26deg);
+  filter: brightness(0) saturate(100%) invert(59%) sepia(31%) saturate(4363%)
+    hue-rotate(347deg) brightness(101%) contrast(101%);
 }
 
 .firstModal .product-img {
@@ -41,14 +42,20 @@
 
 .firstModal .modal-preview .modal-preview-img {
   width: 50px;
+  height: 50px;
 
-  display: inline-block;
+  position: relative;
 }
 
 .firstModal .modal-preview .modal-preview-img:hover {
   border: 1.5px solid var(--orange);
 
   border-radius: 5px;
+}
+.firstModal .modal-preview .modal-preview-img:hover .white-overlay {
+  opacity: 1;
+
+  cursor: pointer;
 }
 .firstModal .modal-preview .modal-preview-img:not(:last-child) {
   margin-right: 1.2rem;
@@ -61,6 +68,24 @@
 
   cursor: pointer;
 }
-.firstModal .modal-preview .modal-preview-img img:hover {
-  opacity: 0.5;
+
+.white-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s ease; /* Smooth transition */
+}
+
+@media only screen and (max-width: 768px) {
+  .firstModal {
+    position: absolute;
+
+    z-index: 1000;
+    left: 15rem;
+    top: 5rem;
+  }
 }
