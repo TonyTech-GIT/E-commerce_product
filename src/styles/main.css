@@ -219,11 +219,12 @@
   }
 }
 
+/* FOR 767PX DEVICES AND SMALLER... */
 @media only screen and (max-width: 767px) {
   .product__container {
     flex-direction: column;
 
-    padding: 0rem 0rem;
+    padding: 0rem 0rem 2rem 0rem;
 
     justify-content: center;
   }
@@ -252,7 +253,6 @@
   }
 
   .next-icon {
-    /* left: 28.3rem; */
     left: 25rem;
 
     top: 16.5rem;
@@ -277,7 +277,7 @@
 
     margin-top: 1rem;
 
-    padding-bottom: 3rem;
+    padding-bottom: 0rem;
 
     margin-left: 0rem;
   }
@@ -339,12 +339,26 @@
   }
 }
 
-@media only screen and (min-width: 375px) and (max-width: 425px) {
+/* FOR 425PX DEVICES AND SMALLER... */
+@media only screen and (max-width: 425px) {
   .next-icon {
-    /* left: 28.3rem; */
-    left: clamp(18rem, 24rem, 25rem);
+    left: 24rem;
 
-    top: 17rem;
+    top: 16.5rem;
+
+    background-color: var(--white);
+
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+}
+
+/* FOR 375PX - 421PX DEVICES ... */
+@media only screen and (min-width: 375px) and (max-width: 421px) {
+  .next-icon {
+    left: 22.6rem;
+
+    top: 15rem;
 
     background-color: var(--white);
 
@@ -352,6 +366,14 @@
     padding: 0.5rem;
   }
 
+  .previous-icon {
+    top: 15rem;
+    left: 1rem;
+  }
+
+  .product__container-desc {
+    padding: 0rem 1rem;
+  }
   .product__container-desc .inventory .items {
     width: 100%;
 
@@ -372,14 +394,33 @@
   }
 }
 
-@media only screen and (min-width: 375px) {
+/* FOR 375PX DEVICES AND SMALLER... */
+@media only screen and (max-width: 375px) {
+  .product__container-desc {
+    padding: 0rem 0.5rem;
+  }
   .next-icon {
-    left: 23.5rem;
+    left: 20.5rem;
+
+    top: 15rem;
+
+    background-color: var(--white);
+
+    border-radius: 50%;
+    padding: 0.5rem;
   }
 }
 
-@media only screen and (min-width: 425px) {
+/* FOR 320PX DEVICES AND SMALLER... */
+@media only screen and (max-width: 320px) {
   .next-icon {
-    left: 23.8rem;
+    left: 17.5rem;
+
+    top: 16.5rem;
+
+    background-color: var(--white);
+
+    border-radius: 50%;
+    padding: 0.5rem;
   }
 }

@@ -7,7 +7,7 @@ import cart from '../../public/images/icon-cart.svg';
 import deleteIcon from '../../public/images/icon-delete.svg';
 import thumbOne from '../../public/images/image-product-1-thumbnail.jpg'
 import avatar from '../../public/images/image-avatar.png';
-import closeIcon from "../../public/images/icon-close.svg";
+// import closeIcon from "../../public/images/icon-close.svg";
 
 import { QuantityContext } from "./QuantityContext"
 
@@ -42,7 +42,7 @@ const Header = () => {
                     <div className="menu-nav ">
                         <div className="close-btn">
                             <img
-                                src={closeIcon}
+                                src="../../public/images/icon-close.svg"
                                 alt="close-btn"
                                 onClick={closeMenu}
                             />

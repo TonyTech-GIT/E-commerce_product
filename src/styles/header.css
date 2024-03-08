@@ -37,7 +37,7 @@ hr {
 }
 
 .header__container-rightSide {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .header__container-leftSide .navLinks {
@@ -235,8 +235,7 @@ hr {
 /* MEDIA QUERIES... MOBILE */
 @media only screen and (max-width: 767px) {
   .header__container-wrapper {
-    padding: 1rem 0rem 1rem 1rem;
-    /* padding: 2rem 8rem 1.5rem 8rem; */
+    padding: 1rem;
 
     margin-bottom: 0rem;
   }
@@ -311,12 +310,12 @@ hr {
     background-color: var(--white);
     /* background-color: transparent; */
 
-    height: 28rem;
-    width: 29.5rem;
+    height: 30%;
+    width: 24rem;
 
     position: absolute;
-    right: 0.3rem;
-    top: 4.6rem;
+    right: 1.6rem;
+    top: 4.2rem;
 
     z-index: 50;
   }
@@ -424,14 +423,14 @@ hr {
   }
 }
 
-@media only screen and (max-width: 421px) and (min-width: 400px) {
-  .header__container-rightSide {
-    left: 3rem;
-  }
-}
+/* @media only screen and (max-width: 421px) and (min-width: 400px) {
+  
+} */
 
 /* FOR 375PX-421PX DEVICES (WORKED FOR TECNO POUVOUIR 4)... */
 @media only screen and (min-width: 375px) and (max-width: 421px) {
+  .header__container-wrapper {
+  }
   .header__container-rightSide .item-no {
     position: absolute;
 
@@ -440,7 +439,7 @@ hr {
 
     border-radius: 50%;
 
-    left: 0.8rem;
+    left: 5.5rem;
     bottom: 1.1rem;
 
     background-color: var(--orange);
@@ -498,8 +497,8 @@ hr {
 
     border-radius: 50%;
 
-    left: 4.5rem;
-    bottom: 1rem;
+    left: 3.7rem;
+    bottom: 0.8rem;
 
     background-color: var(--orange);
 
@@ -512,7 +511,7 @@ hr {
 
     position: relative;
 
-    bottom: 0.4rem;
+    bottom: 0.5rem;
     left: 0.17rem;
   }
 }
