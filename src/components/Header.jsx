@@ -6,6 +6,8 @@ import projectLogo from '../../public/images/logo.svg';
 import cart from '../../public/images/icon-cart.svg';
 import deleteIcon from '../../public/images/icon-delete.svg';
 import thumbOne from '../../public/images/image-product-1-thumbnail.jpg'
+import avatar from '../../public/images/image-avatar.png';
+import closeIcon from "../../public/images/icon-close.svg";
 
 import { QuantityContext } from "./QuantityContext"
 
@@ -40,7 +42,7 @@ const Header = () => {
                     <div className="menu-nav ">
                         <div className="close-btn">
                             <img
-                                src="../../public/images/icon-close.svg"
+                                src={closeIcon}
                                 alt="close-btn"
                                 onClick={closeMenu}
                             />
@@ -121,7 +123,7 @@ const Header = () => {
                             onClick={handleCartDetails}
                         />
 
-                        <img className="avatar" src="../../public/images/image-avatar.png" alt="avatar" />
+                        <img className="avatar" src={avatar} alt="avatar" />
 
                     </div>
                 </div>

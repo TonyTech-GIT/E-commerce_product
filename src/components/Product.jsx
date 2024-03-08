@@ -16,6 +16,12 @@ import thumbTwo from '../../public/images/image-product-2-thumbnail.jpg';
 import thumbThree from '../../public/images/image-product-3-thumbnail.jpg';
 import thumbFour from '../../public/images/image-product-4-thumbnail.jpg';
 
+import minusIcon from "../../public/images/icon-close.svg"
+import plusIcon from "../../public/images/icon-close.svg"
+import cart from "../../public/images/icon-close.svg"
+import prevIcon from "../../public/images/icon-close.svg"
+import nextIcon from "../../public/images/icon-close.svg"
+
 
 import React, { useEffect, useState, useContext } from "react";
 import { QuantityContext } from './QuantityContext';
@@ -107,7 +113,7 @@ const Product = () => {
             <div className="product__container-img">
                 <img
                     className="next-icon"
-                    src="../../public/images/icon-next.svg" alt="next"
+                    src={nextIcon} alt="next"
                     onClick={handleNextImage}
                 />
 
@@ -119,7 +125,7 @@ const Product = () => {
 
                 <img
                     className="previous-icon"
-                    src="../../public/images/icon-previous.svg" alt="previous"
+                    src={prevIcon} alt="previous"
                     onClick={handlePreviousImage}
                 />
 
@@ -195,7 +201,7 @@ const Product = () => {
                     <div className="items">
                         <img
                             className="minus"
-                            src="../../public/images/icon-minus.svg"
+                            src={minusIcon}
                             alt="minus"
                             onClick={handleDecrement}
                         />
@@ -204,14 +210,14 @@ const Product = () => {
 
                         <img
                             className="add"
-                            src="../../public/images/icon-plus.svg"
+                            src={plusIcon}
                             alt="plus"
                             onClick={handleIncrement}
                         />
                     </div>
 
                     <div className="cta">
-                        <img src="../../public/images/icon-cart.svg" alt="cart" />
+                        <img src={cart} alt="cart" />
                         <span>Add to cart</span>
                     </div>
                 </div>
