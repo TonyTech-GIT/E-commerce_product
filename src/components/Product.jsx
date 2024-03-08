@@ -16,11 +16,11 @@ import thumbTwo from '../../public/images/image-product-2-thumbnail.jpg';
 import thumbThree from '../../public/images/image-product-3-thumbnail.jpg';
 import thumbFour from '../../public/images/image-product-4-thumbnail.jpg';
 
-import minusIcon from "../../public/images/icon-close.svg"
-import plusIcon from "../../public/images/icon-close.svg"
-import cart from "../../public/images/icon-close.svg"
-import prevIcon from "../../public/images/icon-close.svg"
-import nextIcon from "../../public/images/icon-close.svg"
+import minusIcon from "../../public/images/icon-minus.svg"
+import plusIcon from "../../public/images/icon-plus.svg"
+import cart from "../../public/images/icon-cart.svg"
+import prevIcon from "../../public/images/icon-previous.svg"
+import nextIcon from "../../public/images/icon-next.svg"
 
 
 import React, { useEffect, useState, useContext } from "react";
