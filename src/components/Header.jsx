@@ -2,6 +2,11 @@ import { useContext, useState, useEffect } from "react"
 
 // import productOne from '../../public/images/image-product-1.jpg'
 
+import projectLogo from '../../public/images/logo.svg';
+import cart from '../../public/images/icon-cart.svg';
+import deleteIcon from '../../public/images/icon-delete.svg';
+import thumbOne from '../../public/images/image-product-1-thumbnail.jpg'
+
 import { QuantityContext } from "./QuantityContext"
 
 const Header = () => {
@@ -63,7 +68,7 @@ const Header = () => {
                                 <div className="cart-details-info">
 
                                     <div className="info-img">
-                                        <img src="../../public/images/image-product-1-thumbnail.jpg" alt="info-img" />
+                                        <img src={thumbOne} alt="info-img" />
                                     </div>
 
                                     <div className="info-price">
@@ -71,7 +76,7 @@ const Header = () => {
                                         <p className="price">$125.00 x <span className="qty-num">{quantity}</span> <span className="total">{`$${quantity * 125.00}`}</span></p>
                                     </div>
 
-                                    <img className="delete-icon" src="../../public/images/icon-delete.svg" />
+                                    <img className="delete-icon" src={deleteIcon} alt="delete-icon" />
                                 </div>
 
                                 <button className="cart-cta">Checkout</button>
@@ -94,10 +99,7 @@ const Header = () => {
                             onClick={toggleMenu}
                         />
 
-
-
-
-                        <img src="../../public/images/logo.svg" alt="logo" />
+                        <img src={projectLogo} alt="logo" />
 
                         <nav className="navLinks">
                             <a href="#">Collections</a>
@@ -114,7 +116,7 @@ const Header = () => {
 
                         <img
                             className="cart-icon"
-                            src="../../public/images/icon-cart.svg"
+                            src={cart}
                             alt="cart"
                             onClick={handleCartDetails}
                         />
