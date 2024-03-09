@@ -80,6 +80,43 @@
   transition: opacity 0.2s ease; /* Smooth transition */
 }
 
+/* NEXT AND PREVIOUS ARROWS... */
+.next-icon-modal,
+.previous-icon-modal {
+  display: block;
+
+  position: absolute;
+
+  background-color: var(--white);
+
+  border-radius: 50%;
+  padding: 0.5rem;
+
+  cursor: pointer;
+}
+
+/* .next-icon-modal:hover,
+.previous-icon-modal:hover {
+  filter: brightness(0) saturate(100%) invert(59%) sepia(31%) saturate(4363%)
+    hue-rotate(347deg) brightness(101%) contrast(101%);
+} */
+
+.next-icon-modal {
+  left: 17.7rem;
+
+  top: 9rem;
+
+  background-color: var(--white);
+
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.previous-icon-modal {
+  top: 9rem;
+  left: -0.8rem;
+}
+
 @media only screen and (max-width: 768px) {
   .firstModal {
     position: absolute;

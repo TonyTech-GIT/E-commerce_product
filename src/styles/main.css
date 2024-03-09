@@ -5,10 +5,6 @@
   align-items: center;
 }
 
-/* .product__container img {
-  width: 40%;
-} */
-
 .product__container-img .product-img {
   width: 18.8rem;
   border-radius: 10px;
@@ -356,7 +352,7 @@
 /* FOR 375PX - 421PX DEVICES ... */
 @media only screen and (min-width: 375px) and (max-width: 421px) {
   .next-icon {
-    left: 22.6rem;
+    left: 23.5rem;
 
     top: 15rem;
 

@@ -13,6 +13,10 @@ import previewTwo from '../../public/images/image-product-2-thumbnail.jpg';
 import previewThree from '../../public/images/image-product-3-thumbnail.jpg';
 import previewFour from '../../public/images/image-product-4-thumbnail.jpg';
 
+import prevIcon from "../../public/images/icon-previous.svg"
+import nextIcon from "../../public/images/icon-next.svg"
+
+
 import { useEffect, useState } from "react";
 
 const modalPrevImg = [
@@ -70,6 +74,25 @@ const Modal = ({ onClose, selectedImage, setModalImage }) => {
 
     }
 
+    const imgData = [
+        { imgName: previewOne, product: productOne },
+        { imgName: previewTwo, product: productTwo },
+        { imgName: previewThree, product: productThree },
+        { imgName: previewFour, product: productFour }
+    ]
+
+    const handleModalNextImage = () => {
+        const currentIndex = imgData.findIndex(img => img.product === selectedPrevModal);
+        const nextIndex = (currentIndex + 1) % imgData.length;
+        setSelectedPrevModal(imgData[nextIndex].product);
+    }
+
+    const handleModalPreviousImage = () => {
+        const currentIndex = imgData.findIndex(img => img.product === selectedPrevModal);
+        const previousIndex = (currentIndex - 1 + imgData.length) % imgData.length;
+        setSelectedPrevModal(imgData[previousIndex].product);
+    }
+
 
 
     return (
@@ -80,7 +103,20 @@ const Modal = ({ onClose, selectedImage, setModalImage }) => {
 
                 onClick={handleCloseModal}
             />
+
+            <img
+                className="next-icon-modal"
+                src={nextIcon} alt="next"
+                onClick={handleModalNextImage}
+            />
+
             <img className="product-img" src={selectedPrevModal ? selectedPrevModal : selectedImage} alt="product-1" />
+
+            <img
+                className="previous-icon-modal"
+                src={prevIcon} alt="previous"
+                onClick={handleModalPreviousImage}
+            />
 
             <div className="modal-preview">
                 {modalPrevImg.map((modalPrevOne, index) => (
